@@ -8,28 +8,18 @@
 
 import Foundation
 
+public enum AuthEndPoint {
 
-enum NetworkEnvironment {
-    case qa
-    case production
-    case staging
+    case login(name: String, password: String)
+    case logout(token: String)
+    case signup(name: String, password: String)
+    case me(token: String)
 }
 
-public enum MovieApi {
-    case recommended(id:Int)
-    case popular(page:Int)
-    case newMovies(page:Int)
-    case video(id:Int)
-}
-
-extension MovieApi: EndPointType {
+extension AuthEndPoint: EndPointType {
     
     var environmentBaseURL : String {
-        switch NetworkManager.environment {
-        case .production: return "https://api.themoviedb.org/3/movie/"
-        case .qa: return "https://qa.themoviedb.org/3/movie/"
-        case .staging: return "https://staging.themoviedb.org/3/movie/"
-        }
+        return "http://127.0.0.1:8080"
     }
     
     var baseURL: URL {
@@ -37,38 +27,92 @@ extension MovieApi: EndPointType {
         return url
     }
     
-    var path: String {
+    var path: String{
         switch self {
-        case .recommended(let id):
-            return "\(id)/recommendations"
-        case .popular:
-            return "popular"
-        case .newMovies:
-            return "now_playing"
-        case .video(let id):
-            return "\(id)/videos"
+        case .login:
+            return "/login"
+        case .logout:
+            return "/logout"
+        case .me:
+            return "/me"
+        case .signup:
+            return "signup"
         }
     }
     
     var httpMethod: HTTPMethod {
-        return .get
-    }
-    
-    var task: HTTPTask {
         switch self {
-        case .newMovies(let page):
-            return .requestParameters(bodyParameters: nil,
-                                      bodyEncoding: .urlEncoding,
-                                      urlParameters: ["page":page,
-                                                      "api_key":NetworkManager.MovieAPIKey])
-        default:
-            return .request
+        case .me:
+            return .get
+        case .login:
+            return .post
+        case .logout:
+            return .post
+        case .signup:
+            return .post
+        }
+    }
+
+    private var parameters: [String: String]? {
+        switch self {
+        case .login(let name, let password):
+            return [APIParameterKeys.userName: name,APIParameterKeys.password: password ]
+        case .logout:
+            return nil
+        case .me:
+            return nil
+        case .signup(let name, let password):
+            return [APIParameterKeys.userName: name,APIParameterKeys.password: password ]
         }
     }
     
+//    var task: HTTPTask {
+//        switch self {
+//
+//        case .login:
+//            return .requestParametersAndHeaders(bodyParameters: parameters,
+//                                      bodyEncoding: .,
+//                                      urlParameters: ["page":page,
+//                                                      "api_key":NetworkManager.MovieAPIKey])
+//        case .logout:
+//            return .requestParametersAndHeaders(bodyParameters: nil,
+//                                      bodyEncoding: .urlEncoding,
+//                                      urlParameters: ["page":page,
+//                                                      "api_key":NetworkManager.MovieAPIKey])
+//        case .me:
+//            return .requestParametersAndHeaders(bodyParameters: nil,
+//                                      bodyEncoding: .urlEncoding,
+//                                      urlParameters: ["page":page,
+//                                                      "api_key":NetworkManager.MovieAPIKey])
+//        case .signup:
+//            return .requestParametersAndHeaders(bodyParameters: nil,
+//                                      bodyEncoding: .urlEncoding,
+//                                      urlParameters: ["page":page,
+//                                                      "api_key":NetworkManager.MovieAPIKey])
+//        }
+//        default:
+//            return .request
+//        }
+//    }
+    
     var headers: HTTPHeaders? {
-        return nil
+        switch self {
+        case .me:
+            return .re
+        case .login:
+            return .post
+        case .logout:
+            return .post
+        case .signup:
+            return .post
+        }
     }
 }
 
 
+struct APIParameterKeysAuth{
+
+    static let userName = "username"
+    static let password = "password"
+    static let contentType = "Content-Type"
+}

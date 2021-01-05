@@ -6,12 +6,9 @@
 //
 
 import Foundation
-
+/*
 enum APIRouter {
-    case login(name: String, password: String)
-    case logout(token: String)
-    case signup(name: String, password: String)
-    case me(token: String)
+   
 
 
     private var method: HTTPMethod {
@@ -81,3 +78,4 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+ */

@@ -8,10 +8,10 @@
 import Foundation
 
 
-struct APIParameterKeys{
-
-    static let userName = "username"
-    static let password = "password"
-    static let contentType = "Content-Type"
-
-}
+//struct APIParameterKeys{
+//
+//    static let userName = "username"
+//    static let password = "password"
+//    static let contentType = "Content-Type"
+//
+//}

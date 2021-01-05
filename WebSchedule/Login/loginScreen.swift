@@ -6,3 +6,22 @@
 //
 
 import Foundation
+import UIKit
+
+class LoginViewController: UIViewController {
+
+    @IBOutlet weak var nameTextField: UITextField!
+
+    @IBOutlet weak var passwordTextField: UITextField!
+
+    @IBAction func loiginButtonClick(_ sender: Any) {
+
+    }
+    @IBAction func signUpButtonClick(_ sender: Any) {
+
+    }
+
+    override func viewDidLoad() {
+
+    }
+}
