@@ -22,7 +22,7 @@ public class NetworkManager {
     static let MovieAPIKey = ""
     let router = Router<AuthEndPoint>()
 
-    func login(name: String, password: String, completion: @escaping (Result<signModel?, Error>) -> Void) {
+    func login(name: String, password: String, completion: @escaping (Result<signModel, Error>) -> Void) {
         router.request(.login(name: name, password: password)) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -36,7 +36,7 @@ public class NetworkManager {
         }
     }
 
-    func signup(name: String, password: String, completion: @escaping (Result<signModel?, Error>) -> Void) {
+    func signup(name: String, password: String, completion: @escaping (Result<signModel, Error>) -> Void) {
         router.request(.signup(name: name, password: password)) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -53,7 +53,7 @@ public class NetworkManager {
         }
     }
 
-    func logout(token: String, completion: @escaping (Result<String?, Error>) -> Void) {
+    func logout(token: String, completion: @escaping (Result<String, Error>) -> Void) {
         router.request(.logout(token: token)){ data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -69,7 +69,7 @@ public class NetworkManager {
         }
     }
 
-    func me(token: String, completion: @escaping (Result<userModel?, Error>) -> Void) {
+    func me(token: String, completion: @escaping (Result<userModel, Error>) -> Void) {
         router.request(.me(token: token)) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -90,7 +90,7 @@ public class NetworkManager {
 //
 //    }
 
-    public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String?,Error>{
+    public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String,Error>{
         switch response.statusCode {
         case 200...299: return .success("OK")
         case 401...500: return .failure(NetworkResponse.authenticationError)
@@ -101,7 +101,7 @@ public class NetworkManager {
     }
 
 
-    private func decode<T: Codable>(_ data: Data?) throws -> Result<T?,Error> {
+    private func decode<T: Codable>(_ data: Data?) throws -> Result<T,Error> {
 
         guard let responseData = data else {
             return .failure(NetworkResponse.noData)
@@ -113,13 +113,13 @@ public class NetworkManager {
         return .success(apiResponse)
     }
 
-    private func getResult<T: Codable>(_ result: Result<String?, Error>,
+    private func getResult<T: Codable>(_ result: Result<String, Error>,
                                        _ data: Data?,
-                                       completion: @escaping (Result<T?, Error>) -> Void) {
+                                       completion: @escaping (Result<T, Error>) -> Void) {
         switch result {
         case .success:
             do {
-                let apiResponseResult: Result<T?, Error> = try self.decode(data)
+                let apiResponseResult: Result<T, Error> = try self.decode(data)
                 completion(apiResponseResult)
             }catch {
                 print(error)

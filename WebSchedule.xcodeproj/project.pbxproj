@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBCD25A497FD00F94EA6 /* Models.swift */; };
 		F6A3CBD825A49A2200F94EA6 /* WebScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */; };
-		F6A3CBE625A4A3BA00F94EA6 /* Result+2vals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */; };
+		F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */; };
+		F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */; };
+		F6A3CC0325A63F9000F94EA6 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */; };
 		F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A737258E730E00DA874F /* AppDelegate.swift */; };
 		F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A739258E730E00DA874F /* SceneDelegate.swift */; };
 		F6C8A73C258E730E00DA874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A73B258E730E00DA874F /* ViewController.swift */; };
@@ -45,7 +47,9 @@
 		F6A3CBD525A49A2200F94EA6 /* WebScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScheduleTests.swift; sourceTree = "<group>"; };
 		F6A3CBD925A49A2200F94EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+2vals.swift"; sourceTree = "<group>"; };
+		F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
+		F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUIViewController.swift; sourceTree = "<group>"; };
+		F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		F6C8A734258E730E00DA874F /* WebSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C8A737258E730E00DA874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C8A739258E730E00DA874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		F6A3CBE925A4A3BF00F94EA6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */,
+				F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,23 +131,25 @@
 				F6C8A737258E730E00DA874F /* AppDelegate.swift */,
 				F6C8A739258E730E00DA874F /* SceneDelegate.swift */,
 				F6C8A751258E734500DA874F /* Main */,
-				F6C8A74F258E733B00DA874F /* Login */,
+				F6C8A74F258E733B00DA874F /* Auth */,
 				F6C8A740258E731000DA874F /* Assets.xcassets */,
 				F6C8A742258E731000DA874F /* LaunchScreen.storyboard */,
 				F6C8A745258E731000DA874F /* Info.plist */,
 				F6C8A78C258E8E0600DA874F /* Networking */,
 				F6C8A75D258E789100DA874F /* Models */,
 				F6A3CBE925A4A3BF00F94EA6 /* Extensions */,
+				F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */,
 			);
 			path = WebSchedule;
 			sourceTree = "<group>";
 		};
-		F6C8A74F258E733B00DA874F /* Login */ = {
+		F6C8A74F258E733B00DA874F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				F6C8A74C258E733600DA874F /* loginScreen.swift */,
+				F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */,
 			);
-			path = Login;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		F6C8A751258E734500DA874F /* Main */ = {
@@ -332,12 +338,14 @@
 				F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */,
 				F6C8A7A5258E8E0700DA874F /* NetworkLogger.swift in Sources */,
 				F6C8A79D258E8E0700DA874F /* URLParameterEncoding.swift in Sources */,
+				F6A3CC0325A63F9000F94EA6 /* SignUpScreen.swift in Sources */,
 				F6C8A79E258E8E0700DA874F /* JSONParameterEncoder.swift in Sources */,
 				F6C8A7A3258E8E0700DA874F /* HTTPMethod.swift in Sources */,
 				F6C8A7A2258E8E0700DA874F /* HTTPTask.swift in Sources */,
-				F6A3CBE625A4A3BA00F94EA6 /* Result+2vals.swift in Sources */,
+				F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */,
 				F6C8A7A0258E8E0700DA874F /* AuthEndPoint.swift in Sources */,
 				F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */,
+				F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
