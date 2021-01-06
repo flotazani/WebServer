@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias HTTPHeaders = [String:String]
+public typealias HTTPHeaders = [String: String]
 
 public enum HTTPTask {
     case request
@@ -19,8 +19,8 @@ public enum HTTPTask {
     
     case requestParametersAndHeaders(bodyParameters: Parameters?,
         bodyEncoding: ParameterEncoding,
-        urlParameters: Parameters?,
-        additionHeaders: HTTPHeaders?)
+        urlParameters: Parameters? = nil,
+        additionHeaders: HTTPHeaders? = nil)
     
     // case download, upload...etc
 }

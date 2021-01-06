@@ -8,20 +8,28 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController {
+class LogSignViewController: UIViewController {
+
+    var manager = NetworkManager()
 
     @IBOutlet weak var nameTextField: UITextField!
-
     @IBOutlet weak var passwordTextField: UITextField!
 
-    @IBAction func loiginButtonClick(_ sender: Any) {
 
+    @IBAction func loginButtonClick(_ sender: Any) {
+        manager.login(name: "NatanTheChef", password: "qwerty") { user, error in
+            if user != nil{
+                print(user!)
+            } else {
+                print(error)
+            }
+        }
     }
-    @IBAction func signUpButtonClick(_ sender: Any) {
 
+    @IBAction func SignUpButtonClick(_ sender: Any) {
     }
 
     override func viewDidLoad() {
-
+        super.viewDidLoad()
     }
 }

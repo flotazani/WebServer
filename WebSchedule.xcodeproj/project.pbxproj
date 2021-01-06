@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBCD25A497FD00F94EA6 /* Models.swift */; };
+		F6A3CBD825A49A2200F94EA6 /* WebScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */; };
+		F6A3CBE625A4A3BA00F94EA6 /* Result+2vals.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */; };
 		F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A737258E730E00DA874F /* AppDelegate.swift */; };
 		F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A739258E730E00DA874F /* SceneDelegate.swift */; };
 		F6C8A73C258E730E00DA874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A73B258E730E00DA874F /* ViewController.swift */; };
@@ -14,9 +17,6 @@
 		F6C8A741258E731000DA874F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C8A740258E731000DA874F /* Assets.xcassets */; };
 		F6C8A744258E731000DA874F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C8A742258E731000DA874F /* LaunchScreen.storyboard */; };
 		F6C8A74D258E733600DA874F /* loginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A74C258E733600DA874F /* loginScreen.swift */; };
-		F6C8A754258E738400DA874F /* loginScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C8A753258E738400DA874F /* loginScreen.storyboard */; };
-		F6C8A77F258E83E600DA874F /* URLRequsetConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A77E258E83E600DA874F /* URLRequsetConstructor.swift */; };
-		F6C8A783258E863700DA874F /* APIParamterKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A782258E863700DA874F /* APIParamterKeys.swift */; };
 		F6C8A79C258E8E0700DA874F /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A78E258E8E0600DA874F /* ParameterEncoding.swift */; };
 		F6C8A79D258E8E0700DA874F /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A78F258E8E0600DA874F /* URLParameterEncoding.swift */; };
 		F6C8A79E258E8E0700DA874F /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A790258E8E0600DA874F /* JSONParameterEncoder.swift */; };
@@ -30,7 +30,22 @@
 		F6C8A7A6258E8E0700DA874F /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A79B258E8E0600DA874F /* EndPointType.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F6A3CBDA25A49A2200F94EA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6C8A72C258E730E00DA874F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6C8A733258E730E00DA874F;
+			remoteInfo = WebSchedule;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F6A3CBCD25A497FD00F94EA6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F6A3CBD525A49A2200F94EA6 /* WebScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScheduleTests.swift; sourceTree = "<group>"; };
+		F6A3CBD925A49A2200F94EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+2vals.swift"; sourceTree = "<group>"; };
 		F6C8A734258E730E00DA874F /* WebSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C8A737258E730E00DA874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C8A739258E730E00DA874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,9 +55,6 @@
 		F6C8A743258E731000DA874F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6C8A745258E731000DA874F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6C8A74C258E733600DA874F /* loginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginScreen.swift; sourceTree = "<group>"; };
-		F6C8A753258E738400DA874F /* loginScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginScreen.storyboard; sourceTree = "<group>"; };
-		F6C8A77E258E83E600DA874F /* URLRequsetConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequsetConstructor.swift; sourceTree = "<group>"; };
-		F6C8A782258E863700DA874F /* APIParamterKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParamterKeys.swift; sourceTree = "<group>"; };
 		F6C8A78E258E8E0600DA874F /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		F6C8A78F258E8E0600DA874F /* URLParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
 		F6C8A790258E8E0600DA874F /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
@@ -57,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F6A3CBD225A49A2200F94EA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6C8A731258E730E00DA874F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,10 +86,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F6A3CBD625A49A2200F94EA6 /* WebScheduleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */,
+				F6A3CBD925A49A2200F94EA6 /* Info.plist */,
+			);
+			path = WebScheduleTests;
+			sourceTree = "<group>";
+		};
+		F6A3CBE925A4A3BF00F94EA6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6A3CBE525A4A3BA00F94EA6 /* Result+2vals.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F6C8A72B258E730E00DA874F = {
 			isa = PBXGroup;
 			children = (
 				F6C8A736258E730E00DA874F /* WebSchedule */,
+				F6A3CBD625A49A2200F94EA6 /* WebScheduleTests */,
 				F6C8A735258E730E00DA874F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C8A734258E730E00DA874F /* WebSchedule.app */,
+				F6A3CBD525A49A2200F94EA6 /* WebScheduleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,7 +132,8 @@
 				F6C8A742258E731000DA874F /* LaunchScreen.storyboard */,
 				F6C8A745258E731000DA874F /* Info.plist */,
 				F6C8A78C258E8E0600DA874F /* Networking */,
-				F6C8A75D258E789100DA874F /* Networkold */,
+				F6C8A75D258E789100DA874F /* Models */,
+				F6A3CBE925A4A3BF00F94EA6 /* Extensions */,
 			);
 			path = WebSchedule;
 			sourceTree = "<group>";
@@ -103,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				F6C8A74C258E733600DA874F /* loginScreen.swift */,
-				F6C8A753258E738400DA874F /* loginScreen.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -117,13 +155,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		F6C8A75D258E789100DA874F /* Networkold */ = {
+		F6C8A75D258E789100DA874F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F6C8A782258E863700DA874F /* APIParamterKeys.swift */,
-				F6C8A77E258E83E600DA874F /* URLRequsetConstructor.swift */,
+				F6A3CBCD25A497FD00F94EA6 /* Models.swift */,
 			);
-			path = Networkold;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F6C8A78C258E8E0600DA874F /* Networking */ = {
@@ -179,6 +216,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F6A3CBD425A49A2200F94EA6 /* WebScheduleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6A3CBDC25A49A2200F94EA6 /* Build configuration list for PBXNativeTarget "WebScheduleTests" */;
+			buildPhases = (
+				F6A3CBD125A49A2200F94EA6 /* Sources */,
+				F6A3CBD225A49A2200F94EA6 /* Frameworks */,
+				F6A3CBD325A49A2200F94EA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6A3CBDB25A49A2200F94EA6 /* PBXTargetDependency */,
+			);
+			name = WebScheduleTests;
+			productName = WebScheduleTests;
+			productReference = F6A3CBD525A49A2200F94EA6 /* WebScheduleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F6C8A733258E730E00DA874F /* WebSchedule */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6C8A748258E731000DA874F /* Build configuration list for PBXNativeTarget "WebSchedule" */;
@@ -205,6 +260,10 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					F6A3CBD425A49A2200F94EA6 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = F6C8A733258E730E00DA874F;
+					};
 					F6C8A733258E730E00DA874F = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -224,18 +283,25 @@
 			projectRoot = "";
 			targets = (
 				F6C8A733258E730E00DA874F /* WebSchedule */,
+				F6A3CBD425A49A2200F94EA6 /* WebScheduleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F6A3CBD325A49A2200F94EA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6C8A732258E730E00DA874F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F6C8A744258E731000DA874F /* LaunchScreen.storyboard in Resources */,
 				F6C8A741258E731000DA874F /* Assets.xcassets in Resources */,
-				F6C8A754258E738400DA874F /* loginScreen.storyboard in Resources */,
 				F6C8A73F258E730E00DA874F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +309,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F6A3CBD125A49A2200F94EA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6A3CBD825A49A2200F94EA6 /* WebScheduleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F6C8A730258E730E00DA874F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,19 +329,27 @@
 				F6C8A74D258E733600DA874F /* loginScreen.swift in Sources */,
 				F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */,
 				F6C8A7A6258E8E0700DA874F /* EndPointType.swift in Sources */,
+				F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */,
 				F6C8A7A5258E8E0700DA874F /* NetworkLogger.swift in Sources */,
-				F6C8A783258E863700DA874F /* APIParamterKeys.swift in Sources */,
 				F6C8A79D258E8E0700DA874F /* URLParameterEncoding.swift in Sources */,
 				F6C8A79E258E8E0700DA874F /* JSONParameterEncoder.swift in Sources */,
-				F6C8A77F258E83E600DA874F /* URLRequsetConstructor.swift in Sources */,
 				F6C8A7A3258E8E0700DA874F /* HTTPMethod.swift in Sources */,
 				F6C8A7A2258E8E0700DA874F /* HTTPTask.swift in Sources */,
+				F6A3CBE625A4A3BA00F94EA6 /* Result+2vals.swift in Sources */,
 				F6C8A7A0258E8E0700DA874F /* AuthEndPoint.swift in Sources */,
 				F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6A3CBDB25A49A2200F94EA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6C8A733258E730E00DA874F /* WebSchedule */;
+			targetProxy = F6A3CBDA25A49A2200F94EA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F6C8A73D258E730E00DA874F /* Main.storyboard */ = {
@@ -289,6 +371,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F6A3CBDD25A49A2200F94EA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N2YBW8Q7F9;
+				INFOPLIST_FILE = WebScheduleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AndreiKonovalov.WebScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebSchedule.app/WebSchedule";
+			};
+			name = Debug;
+		};
+		F6A3CBDE25A49A2200F94EA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N2YBW8Q7F9;
+				INFOPLIST_FILE = WebScheduleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AndreiKonovalov.WebScheduleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebSchedule.app/WebSchedule";
+			};
+			name = Release;
+		};
 		F6C8A746258E731000DA874F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -446,6 +568,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F6A3CBDC25A49A2200F94EA6 /* Build configuration list for PBXNativeTarget "WebScheduleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6A3CBDD25A49A2200F94EA6 /* Debug */,
+				F6A3CBDE25A49A2200F94EA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F6C8A72F258E730E00DA874F /* Build configuration list for PBXProject "WebSchedule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
