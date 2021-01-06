@@ -12,6 +12,7 @@
 		F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */; };
 		F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */; };
 		F6A3CC0325A63F9000F94EA6 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */; };
+		F6A3CC0725A645EB00F94EA6 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */; };
 		F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A737258E730E00DA874F /* AppDelegate.swift */; };
 		F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A739258E730E00DA874F /* SceneDelegate.swift */; };
 		F6C8A73C258E730E00DA874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A73B258E730E00DA874F /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Error.swift"; sourceTree = "<group>"; };
 		F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUIViewController.swift; sourceTree = "<group>"; };
 		F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		F6C8A734258E730E00DA874F /* WebSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C8A737258E730E00DA874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C8A739258E730E00DA874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				F6C8A73D258E730E00DA874F /* Main.storyboard */,
 				F6C8A73B258E730E00DA874F /* ViewController.swift */,
+				F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				F6C8A7A4258E8E0700DA874F /* Router.swift in Sources */,
 				F6C8A79F258E8E0700DA874F /* NetworkManager.swift in Sources */,
 				F6C8A74D258E733600DA874F /* loginScreen.swift in Sources */,
+				F6A3CC0725A645EB00F94EA6 /* PersonalViewController.swift in Sources */,
 				F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */,
 				F6C8A7A6258E8E0700DA874F /* EndPointType.swift in Sources */,
 				F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */,
