@@ -11,22 +11,35 @@ import UIKit
 class LogSignViewController: UIViewController {
 
     var manager = NetworkManager()
-
+    var token: String?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
 
     @IBAction func loginButtonClick(_ sender: Any) {
-        manager.login(name: "NatanTheChef", password: "qwerty") { user, error in
-            if user != nil{
-                print(user!)
-            } else {
+        guard let token = token else {
+            return
+        }
+        manager.logout(token: token) { result in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure(let error):
                 print(error)
             }
         }
     }
 
     @IBAction func SignUpButtonClick(_ sender: Any) {
+        manager.login(name: "bob dolbaeb", password: "aaa22bb") { result in
+            switch result {
+            case .success(let data):
+                self.token = data?.token
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     override func viewDidLoad() {

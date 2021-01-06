@@ -22,8 +22,8 @@ struct userModel: Codable {
     let createdAt: String
 }
 
-struct ErrorModel{
-    let error: Int?
+struct ErrorModel: Codable {
+    let error: Double? = nil
     let reason: String?
 }
 

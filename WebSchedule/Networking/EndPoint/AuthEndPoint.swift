@@ -62,10 +62,12 @@ extension AuthEndPoint: EndPointType {
                                                 additionHeaders: headers)
         case .logout:
             return .requestParametersAndHeaders(bodyParameters: nil,
-                                                bodyEncoding: .jsonEncoding)
+                                                bodyEncoding: .jsonEncoding,
+                                                additionHeaders: headers)
         case .me:
             return .requestParametersAndHeaders(bodyParameters: nil,
-                                                bodyEncoding: .jsonEncoding)
+                                                bodyEncoding: .jsonEncoding,
+                                                additionHeaders: headers)
         case .signup:
             return .requestParametersAndHeaders(bodyParameters: parameters,
                                                 bodyEncoding: .jsonEncoding)
@@ -94,10 +96,10 @@ extension AuthEndPoint: EndPointType {
         case .login(let name, let password):
             let authString = "\(name):\(password)".data(using: String.Encoding.utf8)!.base64EncodedString()
             return ["Authorization" : "Basic \(authString)"]
-        case .logout:
-            return nil
-        case .me:
-            return nil
+        case .logout(let token):
+            return ["Authorization" : "Bearer \(token)"]
+        case .me(let token):
+            return ["Authorization" : "Bearer \(token)"]
         case .signup:
             return nil
         }

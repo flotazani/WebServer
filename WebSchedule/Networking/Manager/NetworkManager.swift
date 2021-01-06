@@ -8,156 +8,79 @@
 
 import Foundation
 
-enum NetworkResponse:String {
+enum NetworkResponse: Error {
     case success
-    case authenticationError = "You need to be authenticated first."
-    case badRequest = "Bad request"
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
+    case authenticationError
+    case badRequest
+    case outdated
+    case failed
+    case noData
+    case unableToDecode
 }
 
-enum Result<String>{
-    case success
-    case failure(String)
-}
-
-struct NetworkManager {
+public class NetworkManager {
     static let MovieAPIKey = ""
     let router = Router<AuthEndPoint>()
 
-    func login(name: String, password: String, completion: @escaping (_ data: signModel?,_ error: String?)->()) {
+    func login(name: String, password: String, completion: @escaping (Result<signModel?, Error>) -> Void) {
         router.request(.login(name: name, password: password)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
+            if let error = error {
+                completion(.failure(error))
             }
-
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(signModel.self, from: responseData)
-                        completion(apiResponse,nil)
-                    }catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
+                self.getResult(result, data) { res in
+                    completion(res)
                 }
             }
         }
     }
 
-    func signup(name: String, password: String, completion: @escaping (_ data: signModel?,_ error: String?)->() ) {
+    func signup(name: String, password: String, completion: @escaping (Result<signModel?, Error>) -> Void) {
         router.request(.signup(name: name, password: password)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
+            if let error = error {
+                completion(.failure(error))
             }
-
+            if let error = error {
+                completion(.failure(error))
+            }
             if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response, data)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(signModel.self, from: responseData)
-                        completion(apiResponse,nil)
-                    }catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                    }catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                    completion(nil, networkFailureError)
+                let result = self.handleNetworkResponse(response)
+                self.getResult(result, data) { res in
+                    completion(res)
                 }
             }
         }
     }
 
-    func logout(token: String, completion: @escaping (_ data: String?,_ error: String?)->()) {
+    func logout(token: String, completion: @escaping (Result<String?, Error>) -> Void) {
         router.request(.logout(token: token)){ data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
+            if let error = error {
+                completion(.failure(error))
             }
 
+            if let error = error {
+                completion(.failure(error))
+            }
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-//                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-//                        print(jsonData)
-//                        let apiResponse = try JSONDecoder().decode(signModel.self, from: responseData)
-                        completion("ok",nil)
-                    }catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
+                completion(result)
             }
         }
     }
 
-    func me(token: String, completion: @escaping (_ data: userModel?,_ error: String?)->()) {
+    func me(token: String, completion: @escaping (Result<userModel?, Error>) -> Void) {
         router.request(.me(token: token)) { data, response, error in
-            if error != nil {
-                completion(nil, "Please check your network connection.")
+            if let error = error {
+                completion(.failure(error))
             }
-
+            if let error = error {
+                completion(.failure(error))
+            }
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        print(responseData)
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        print(jsonData)
-                        let apiResponse = try JSONDecoder().decode(userModel.self, from: responseData)
-                        completion(apiResponse,nil)
-                    }catch {
-                        print(error)
-                        completion(nil, NetworkResponse.unableToDecode.rawValue)
-                    }
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
+                self.getResult(result, data) { res in
+                    completion(res)
                 }
             }
         }
@@ -167,15 +90,50 @@ struct NetworkManager {
 //
 //    }
 
-    public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+    public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String?,Error>{
         switch response.statusCode {
-        case 200...299: return .success
-        case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
-        case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-        case 600: return .failure(NetworkResponse.outdated.rawValue)
-        default: return .failure(NetworkResponse.failed.rawValue)
+        case 200...299: return .success("OK")
+        case 401...500: return .failure(NetworkResponse.authenticationError)
+        case 501...599: return .failure(NetworkResponse.badRequest)
+        case 600: return .failure(NetworkResponse.outdated)
+        default: return .failure(NetworkResponse.failed)
+        }
+    }
+
+
+    private func decode<T: Codable>(_ data: Data?) throws -> Result<T?,Error> {
+
+        guard let responseData = data else {
+            return .failure(NetworkResponse.noData)
+        }
+        print(responseData)
+        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+        print(jsonData)
+        let apiResponse = try JSONDecoder().decode(T.self , from: responseData)
+        return .success(apiResponse)
+    }
+
+    private func getResult<T: Codable>(_ result: Result<String?, Error>,
+                                       _ data: Data?,
+                                       completion: @escaping (Result<T?, Error>) -> Void) {
+        switch result {
+        case .success:
+            do {
+                let apiResponseResult: Result<T?, Error> = try self.decode(data)
+                completion(apiResponseResult)
+            }catch {
+                print(error)
+                completion(.failure(NetworkResponse.unableToDecode))
+            }
+        case .failure:
+            do {
+                let apiErrorResult: Result<ErrorModel?, Error> = try self.decode(data)
+                completion(.failure(try apiErrorResult.get()?.reason as! Error ))
+            } catch {
+                print(error)
+                completion(.failure(NetworkResponse.unableToDecode))
+            }
+            //completion(.failure(networkFailureError))
         }
     }
 }
-
-
