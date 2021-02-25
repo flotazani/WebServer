@@ -14,6 +14,10 @@
 		F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */; };
 		F6A3CC0325A63F9000F94EA6 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */; };
 		F6A3CC0725A645EB00F94EA6 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */; };
+		F6C3B20625E8330700190DF0 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B20525E8330700190DF0 /* MainTabBar.swift */; };
+		F6C3B20A25E8333F00190DF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B20925E8333F00190DF0 /* ProfileViewController.swift */; };
+		F6C3B20E25E8338400190DF0 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B20D25E8338400190DF0 /* NotesViewController.swift */; };
+		F6C3B21225E833B600190DF0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B21125E833B600190DF0 /* NoteViewController.swift */; };
 		F6C8A738258E730E00DA874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A737258E730E00DA874F /* AppDelegate.swift */; };
 		F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A739258E730E00DA874F /* SceneDelegate.swift */; };
 		F6C8A73C258E730E00DA874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A73B258E730E00DA874F /* ViewController.swift */; };
@@ -54,6 +58,10 @@
 		F6A3CBFA25A63E2900F94EA6 /* BasicUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUIViewController.swift; sourceTree = "<group>"; };
 		F6A3CC0225A63F9000F94EA6 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		F6C3B20525E8330700190DF0 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		F6C3B20925E8333F00190DF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F6C3B20D25E8338400190DF0 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		F6C3B21125E833B600190DF0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		F6C8A734258E730E00DA874F /* WebSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C8A737258E730E00DA874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C8A739258E730E00DA874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +170,10 @@
 				F6C8A73D258E730E00DA874F /* Main.storyboard */,
 				F6C8A73B258E730E00DA874F /* ViewController.swift */,
 				F6A3CC0625A645EB00F94EA6 /* PersonalViewController.swift */,
+				F6C3B20525E8330700190DF0 /* MainTabBar.swift */,
+				F6C3B20925E8333F00190DF0 /* ProfileViewController.swift */,
+				F6C3B20D25E8338400190DF0 /* NotesViewController.swift */,
+				F6C3B21125E833B600190DF0 /* NoteViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -337,6 +349,7 @@
 				F6C8A7A1258E8E0700DA874F /* NetworkROUTER.swift in Sources */,
 				F6C8A79C258E8E0700DA874F /* ParameterEncoding.swift in Sources */,
 				F6C8A7A4258E8E0700DA874F /* Router.swift in Sources */,
+				F6C3B20625E8330700190DF0 /* MainTabBar.swift in Sources */,
 				F6C8A79F258E8E0700DA874F /* NetworkManager.swift in Sources */,
 				F6C8A74D258E733600DA874F /* loginScreen.swift in Sources */,
 				F6A3CC0725A645EB00F94EA6 /* PersonalViewController.swift in Sources */,
@@ -347,10 +360,13 @@
 				F6C8A79D258E8E0700DA874F /* URLParameterEncoding.swift in Sources */,
 				F6A3CC0325A63F9000F94EA6 /* SignUpScreen.swift in Sources */,
 				F6C8A79E258E8E0700DA874F /* JSONParameterEncoder.swift in Sources */,
+				F6C3B20A25E8333F00190DF0 /* ProfileViewController.swift in Sources */,
 				F6C8A7A3258E8E0700DA874F /* HTTPMethod.swift in Sources */,
 				F6C8A7A2258E8E0700DA874F /* HTTPTask.swift in Sources */,
+				F6C3B21225E833B600190DF0 /* NoteViewController.swift in Sources */,
 				F68C0DB125E7FC42002F87A8 /* NotesEndPoint.swift in Sources */,
 				F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */,
+				F6C3B20E25E8338400190DF0 /* NotesViewController.swift in Sources */,
 				F6C8A7A0258E8E0700DA874F /* AuthEndPoint.swift in Sources */,
 				F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */,
 				F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */,

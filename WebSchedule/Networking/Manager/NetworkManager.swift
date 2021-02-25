@@ -42,9 +42,6 @@ public class NetworkManager {
             if let error = error {
                 completion(.failure(error))
             }
-            if let error = error {
-                completion(.failure(error))
-            }
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 self.getResult(result, data) { res in
@@ -56,10 +53,6 @@ public class NetworkManager {
 
     func logout(token: String, completion: @escaping (Result<String, Error>) -> Void) {
         router.request(.logout(token: token)){ data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            }
-
             if let error = error {
                 completion(.failure(error))
             }
@@ -75,9 +68,6 @@ public class NetworkManager {
             if let error = error {
                 completion(.failure(error))
             }
-            if let error = error {
-                completion(.failure(error))
-            }
             if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                 self.getResult(result, data) { res in
@@ -88,10 +78,7 @@ public class NetworkManager {
     }
 
     func getNotes(token: String, completion: @escaping (Result<notesModel, Error>) -> Void){
-        routerNotes.request(.get(token: token)) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            }
+        routerNotes.request(.getNotes(token: token)) { data, response, error in
             if let error = error {
                 completion(.failure(error))
             }
@@ -104,17 +91,41 @@ public class NetworkManager {
         }
     }
 
-//    func createNote(token: String, user: userModel, body: String,  completion: @escaping (Result<String, Error>) -> Void){
-//        routerNotes.request(.create(token: <#T##String#>)
-//    }
-//
-//    func deleteNote(token: String, user: userModel, id: String, completion: @escaping (Result<String, Error>) -> Void){
-//        routerNotes.request(.delete(name: <#T##String#>, password: <#T##String#>)
-//    }
-//
-//    func updateNote(token: String, user: userModel, id: String, completion: @escaping (Result<String, Error>) -> Void){
-//        routerNotes.request(.
-//    }
+    func createNote(token: String, user: userModel, body: String,  completion: @escaping (Result<String, Error>) -> Void){
+        routerNotes.request(.createNote(token: token, user: user, body: body)) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                completion(result)
+            }
+        }
+    }
+
+    func deleteNote(token: String, user: userModel, id: String, completion: @escaping (Result<String, Error>) -> Void){
+        routerNotes.request(.deleteNote(token: token, user: user, id: id)) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                completion(result)
+            }
+        }
+    }
+
+    func updateNote(token: String, id: String, user: userModel, body: String, completion: @escaping (Result<String, Error>) -> Void){
+        routerNotes.request(.updateNote(token: token, id: id, user: user, body: body)) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                completion(result)
+            }
+        }
+    }
 
     public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String,Error>{
         switch response.statusCode {
@@ -159,7 +170,6 @@ public class NetworkManager {
                 print(error)
                 completion(.failure(NetworkResponse.unableToDecode))
             }
-            //completion(.failure(networkFailureError))
         }
     }
 }

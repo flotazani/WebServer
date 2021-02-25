@@ -6,12 +6,13 @@
 //
 
 import Foundation
+
 public enum NoteEndPoint {
 
-    case get(name: String, password: String)
-    case create(token: String)
-    case delete(name: String, password: String)
-    case update(token: String)
+    case getNotes(token: String)
+    case createNote(token: String, user: userModel,  body: String)
+    case deleteNote(token: String, user: userModel,  id: String)
+    case updateNote(token: String, id: String, user: userModel, body: String )
 }
 
 extension NoteEndPoint: EndPointType {
@@ -27,26 +28,26 @@ extension NoteEndPoint: EndPointType {
 
     var path: String{
         switch self {
-        case .get:
+        case .getNotes:
             return "/notes/get"
-        case .create:
+        case .createNote:
             return "/notes/create"
-        case .delete:
+        case .deleteNote:
             return "/notes/delete"
-        case .update:
+        case .updateNote:
             return "/notes/update"
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .get:
+        case .getNotes:
             return .get
-        case .create:
+        case .createNote:
             return .post
-        case .delete:
+        case .deleteNote:
             return .delete
-        case .update:
+        case .updateNote:
             return .post
         }
     }
@@ -54,20 +55,20 @@ extension NoteEndPoint: EndPointType {
     var task: HTTPTask {
         switch self {
 
-        case .get:
-            return .requestParametersAndHeaders(bodyParameters: parameters,
+        case .getNotes:
+            return .requestParametersAndHeaders(bodyParameters: nil,
                                                 bodyEncoding: .jsonEncoding,
                                                 additionHeaders: headers)
-        case .create:
-            return .requestParametersAndHeaders(bodyParameters: parameters,
+        case .createNote:
+            return .requestParametersAndHeaders(bodyParameters: notesParameters,
                                                 bodyEncoding: .jsonEncoding,
                                                 additionHeaders: headers)
-        case .delete:
-            return .requestParametersAndHeaders(bodyParameters: parameters,
+        case .deleteNote:
+            return .requestParametersAndHeaders(bodyParameters: notesParameters,
                                                 bodyEncoding: .jsonEncoding,
                                                 additionHeaders: headers)
-        case .update:
-            return .requestParametersAndHeaders(bodyParameters: parameters,
+        case .updateNote:
+            return .requestParametersAndHeaders(bodyParameters: notesParameters,
                                                 bodyEncoding: .jsonEncoding,
                                                 additionHeaders: headers)
         default:
@@ -75,16 +76,16 @@ extension NoteEndPoint: EndPointType {
         }
     }
 
-    private var parameters: [String: String]? {
+    private var notesParameters: [String: Any]? {
         switch self {
-        case .get:
+        case .getNotes:
             return nil
-        case .create(let user, let body):
-            return [NotesParameterKeys.name: user, NotesParameterKeys.body: body]
-        case .delete(let user, let id):
+        case .createNote( _, let user, let body):
+            return [NotesParameterKeys.user: user, NotesParameterKeys.body: body]
+        case .deleteNote( _, let user, let id):
             return [NotesParameterKeys.user: user, NotesParameterKeys.noteId: id]
-        case .update(let id, let body ):
-            return [APIParameterKeys.noteId: id, APIParameterKeys.body: body ]
+        case .updateNote( _, let id, let user, let body):
+            return [NotesParameterKeys.noteId: id, NotesParameterKeys.user: user, NotesParameterKeys.body: body ]
         }
     }
 
@@ -92,13 +93,13 @@ extension NoteEndPoint: EndPointType {
 
     var headers: HTTPHeaders? {
         switch self {
-        case .get(let token):
+        case .getNotes(let token):
             return ["Authorization" : "Bearer \(token)"]
-        case .create(let token):
+        case .createNote(let token, _, _):
             return ["Authorization" : "Bearer \(token)"]
-        case .delete(let token):
+        case .deleteNote(let token, _, _):
             return ["Authorization" : "Bearer \(token)"]
-        case .update(let token):
+        case .updateNote(let token, _, _, _):
             return ["Authorization" : "Bearer \(token)"]
         }
     }

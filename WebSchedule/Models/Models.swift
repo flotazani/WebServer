@@ -14,7 +14,7 @@ struct signModel: Codable {
     let user: userModel
 }
 
-struct userModel: Codable {
+public struct userModel: Codable {
 
     let username: String?
     let id: String
