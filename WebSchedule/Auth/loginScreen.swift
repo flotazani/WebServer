@@ -40,16 +40,12 @@ class LogSignViewController: BasicViewController {
 }
 
 
-//        guard let token = token else {
-//            return
-//        }
-//        manager.logout(token: token) { result in
-//            switch result {
-//            case .success(let data):
-//                print(data)
-//            case .failure(let error):
-//                DispatchQueue.main.async {
-//                    self.showAlert(message: error.localizedDescription)
-//                }
-//            }
-//        }
+private func loginSucced() {
+
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+
+    // This is to get the SceneDelegate object from your view controller
+    // then call the change root view controller function to change to main tab bar
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+}

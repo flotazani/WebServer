@@ -21,6 +21,7 @@ enum NetworkResponse: Error {
 public class NetworkManager {
     static let MovieAPIKey = ""
     let router = Router<AuthEndPoint>()
+    let routerNotes = Router<NoteEndPoint>()
 
     func login(name: String, password: String, completion: @escaping (Result<signModel, Error>) -> Void) {
         router.request(.login(name: name, password: password)) { data, response, error in
@@ -85,9 +86,34 @@ public class NetworkManager {
             }
         }
     }
+
+    func getNotes(token: String, completion: @escaping (Result<notesModel, Error>) -> Void){
+        routerNotes.request(.get(token: token)) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                self.getResult(result, data) { res in
+                    completion(res)
+                }
+            }
+        }
+    }
+
+//    func createNote(token: String, user: userModel, body: String,  completion: @escaping (Result<String, Error>) -> Void){
+//        routerNotes.request(.create(token: <#T##String#>)
+//    }
 //
-//    func getSchedule(completion: @escaping ){
+//    func deleteNote(token: String, user: userModel, id: String, completion: @escaping (Result<String, Error>) -> Void){
+//        routerNotes.request(.delete(name: <#T##String#>, password: <#T##String#>)
+//    }
 //
+//    func updateNote(token: String, user: userModel, id: String, completion: @escaping (Result<String, Error>) -> Void){
+//        routerNotes.request(.
 //    }
 
     public func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String,Error>{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F68C0DB125E7FC42002F87A8 /* NotesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68C0DB025E7FC42002F87A8 /* NotesEndPoint.swift */; };
 		F6A3CBCE25A497FD00F94EA6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBCD25A497FD00F94EA6 /* Models.swift */; };
 		F6A3CBD825A49A2200F94EA6 /* WebScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */; };
 		F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A3CBE525A4A3BA00F94EA6 /* String+Error.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F68C0DB025E7FC42002F87A8 /* NotesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesEndPoint.swift; sourceTree = "<group>"; };
 		F6A3CBCD25A497FD00F94EA6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		F6A3CBD525A49A2200F94EA6 /* WebScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebScheduleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6A3CBD725A49A2200F94EA6 /* WebScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebScheduleTests.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C8A794258E8E0600DA874F /* AuthEndPoint.swift */,
+				F68C0DB025E7FC42002F87A8 /* NotesEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F6C8A79E258E8E0700DA874F /* JSONParameterEncoder.swift in Sources */,
 				F6C8A7A3258E8E0700DA874F /* HTTPMethod.swift in Sources */,
 				F6C8A7A2258E8E0700DA874F /* HTTPTask.swift in Sources */,
+				F68C0DB125E7FC42002F87A8 /* NotesEndPoint.swift in Sources */,
 				F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */,
 				F6C8A7A0258E8E0700DA874F /* AuthEndPoint.swift in Sources */,
 				F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */,
