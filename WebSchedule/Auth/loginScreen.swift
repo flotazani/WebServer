@@ -15,7 +15,7 @@ class LogSignViewController: BasicViewController {
 
 
     @IBAction func loginButtonClick(_ sender: Any) {
-
+        loginSucced()
         guard let name = nameTextField.text, let password = passwordTextField.text else {
             showAlert(message: "enter creds!!")
             return

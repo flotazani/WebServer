@@ -36,6 +36,7 @@
 		F6C8A7A4258E8E0700DA874F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A799258E8E0600DA874F /* Router.swift */; };
 		F6C8A7A5258E8E0700DA874F /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A79A258E8E0600DA874F /* NetworkLogger.swift */; };
 		F6C8A7A6258E8E0700DA874F /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8A79B258E8E0600DA874F /* EndPointType.swift */; };
+		F6FAE41025EAA616008AE3DB /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FAE40F25EAA616008AE3DB /* NoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		F6C8A799258E8E0600DA874F /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F6C8A79A258E8E0600DA874F /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		F6C8A79B258E8E0600DA874F /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		F6FAE40F25EAA616008AE3DB /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				F6C3B20925E8333F00190DF0 /* ProfileViewController.swift */,
 				F6C3B20D25E8338400190DF0 /* NotesViewController.swift */,
 				F6C3B21125E833B600190DF0 /* NoteViewController.swift */,
+				F6FAE40F25EAA616008AE3DB /* NoteCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -192,7 +195,6 @@
 				F6C8A78D258E8E0600DA874F /* Encoding */,
 				F6C8A791258E8E0600DA874F /* Manager */,
 				F6C8A793258E8E0600DA874F /* EndPoint */,
-				F6C8A795258E8E0600DA874F /* Service */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -200,7 +202,6 @@
 		F6C8A78D258E8E0600DA874F /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
-				F6C8A78E258E8E0600DA874F /* ParameterEncoding.swift */,
 				F6C8A78F258E8E0600DA874F /* URLParameterEncoding.swift */,
 				F6C8A790258E8E0600DA874F /* JSONParameterEncoder.swift */,
 			);
@@ -210,7 +211,10 @@
 		F6C8A791258E8E0600DA874F /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F6C8A796258E8E0600DA874F /* NetworkROUTER.swift */,
+				F6C8A78E258E8E0600DA874F /* ParameterEncoding.swift */,
 				F6C8A792258E8E0600DA874F /* NetworkManager.swift */,
+				F6C8A795258E8E0600DA874F /* Service */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -227,7 +231,6 @@
 		F6C8A795258E8E0600DA874F /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				F6C8A796258E8E0600DA874F /* NetworkROUTER.swift */,
 				F6C8A797258E8E0600DA874F /* HTTPTask.swift */,
 				F6C8A798258E8E0600DA874F /* HTTPMethod.swift */,
 				F6C8A799258E8E0600DA874F /* Router.swift */,
@@ -368,6 +371,7 @@
 				F6A3CBE625A4A3BA00F94EA6 /* String+Error.swift in Sources */,
 				F6C3B20E25E8338400190DF0 /* NotesViewController.swift in Sources */,
 				F6C8A7A0258E8E0700DA874F /* AuthEndPoint.swift in Sources */,
+				F6FAE41025EAA616008AE3DB /* NoteCell.swift in Sources */,
 				F6C8A73A258E730E00DA874F /* SceneDelegate.swift in Sources */,
 				F6A3CBFB25A63E2900F94EA6 /* BasicUIViewController.swift in Sources */,
 			);

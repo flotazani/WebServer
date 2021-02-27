@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = vc
         UIView.transition(with: window,
                           duration: 0.5,
-                          options: [.transitionFlipFromLeft],
+                          options: [.transitionCrossDissolve],
                           animations: nil,
                           completion: nil)
 
