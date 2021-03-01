@@ -15,17 +15,15 @@ class LogSignViewController: BasicViewController {
 
 
     @IBAction func loginButtonClick(_ sender: Any) {
-        loginSucced()
         guard let name = nameTextField.text, let password = passwordTextField.text else {
             showAlert(message: "enter creds!!")
             return
         }
-
-        manager.login(name: name, password: password) { result in
+        NetworkManager.shared.login(name: name, password: password) { result in
             switch result {
             case .success(let data):
                 UserDefaults.standard.set(data.token, forKey: "userToken")
-                print(data)
+                loginSucced()
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.showAlert(message: error.localizedDescription)

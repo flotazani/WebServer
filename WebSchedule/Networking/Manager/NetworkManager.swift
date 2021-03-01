@@ -20,6 +20,12 @@ enum NetworkResponse: Error {
 
 public class NetworkManager {
     static let MovieAPIKey = ""
+
+    static var shared: NetworkManager = {
+        let instance = NetworkManager()
+        return instance
+    }()
+    
     let router = Router<AuthEndPoint>()
     let routerNotes = Router<NoteEndPoint>()
 

@@ -24,7 +24,7 @@ class SignUpViewController: BasicViewController {
             showAlert(message: "enter creds!!")
             return
         }
-        manager.signup(name: name, password: password) { result in
+        NetworkManager.shared.signup(name: name, password: password) { result in
             switch result {
             case .success(let data):
                 UserDefaults.standard.set(data.token, forKey: "userToken")

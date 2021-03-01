@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 public class BasicViewController: UIViewController {
-    var manager = NetworkManager()
 
 
     public override func viewDidLoad() {

@@ -16,9 +16,7 @@ class PersonalViewController: BasicViewController {
     }
 
     @IBAction func logoutTapped(_ sender: UIButton) {
-        // ...
-        // after user has successfully logged out
-
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
 
