@@ -14,12 +14,4 @@ public class BasicViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    public func showAlert(message: String){
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-
-        self.present(alert, animated: true)
-    }
 }

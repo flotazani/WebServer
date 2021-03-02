@@ -28,13 +28,21 @@ class SignUpViewController: BasicViewController {
             switch result {
             case .success(let data):
                 UserDefaults.standard.set(data.token, forKey: "userToken")
-                print(data)
+                self.singUpSucced()
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.showAlert(message: error.localizedDescription)
                 }
             }
         }
+    }
+
+    private func singUpSucced() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
     }
 
 

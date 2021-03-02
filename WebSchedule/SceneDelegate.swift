@@ -14,17 +14,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if UserDefaults.standard.string(forKey: "userToken") != nil {
-            let mainTabBarController = storyboard.instantiateViewController(identifier: "TabBarNavigationController")
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
             window?.rootViewController = mainTabBarController
         } else {
-            let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
+            let loginNavController = storyboard.instantiateViewController(identifier: "LoginViewController")
             window?.rootViewController = loginNavController
         }
+        window?.makeKeyAndVisible()
+        
 
     }
 

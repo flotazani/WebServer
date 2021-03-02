@@ -23,12 +23,12 @@ public struct userModel: Codable {
 }
 
 struct notesModel: Codable {
-    let notes: [noteModel]
+    var notes: [noteModel]
 }
 
 struct noteModel: Codable {
-    let id: String
-    let user: userModel
+    var id: String
+    var user: userModel
     let body: String
 }
 struct ErrorModel: Codable {

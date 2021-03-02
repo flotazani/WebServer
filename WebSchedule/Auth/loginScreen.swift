@@ -39,9 +39,11 @@ class LogSignViewController: BasicViewController {
 
 
 private func loginSucced() {
+    DispatchQueue.main.async {
 
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
 
-    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+    }
 }

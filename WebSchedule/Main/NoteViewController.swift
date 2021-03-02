@@ -9,16 +9,32 @@ import UIKit
 
 class NoteViewController: UIViewController {
 
-    @IBOutlet var textView: UITextView!
-    
+    var note: noteModel?
+    let token = UserDefaults.standard.string(forKey: "userToken")
+    var onSavePressed: ((noteModel) -> Void)?
+    @IBOutlet weak var textView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(updateNote))
-        // Do any additional setup after loading the view.
     }
 
     @objc func updateNote(){
-
+        guard let note = note, let token = token else {
+            return
+        }
+        onSavePressed?(note)
+        NetworkManager.shared.createNote(token: token, user: note.user, body: note.body){ result in
+            switch result {
+            case .success(_):
+                print(" ")
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showAlert(message: error.localizedDescription)
+                }
+            }
+        }
     }
 
+    
 }
