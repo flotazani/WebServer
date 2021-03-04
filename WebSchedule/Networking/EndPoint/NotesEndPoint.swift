@@ -48,7 +48,7 @@ extension NoteEndPoint: EndPointType {
         case .deleteNote:
             return .delete
         case .updateNote:
-            return .post
+            return .put
         }
     }
 

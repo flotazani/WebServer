@@ -83,7 +83,7 @@ public class NetworkManager {
         }
     }
 
-    func getNotes(token: String, completion: @escaping (Result<notesModel, Error>) -> Void){
+    func getNotes(token: String, completion: @escaping (Result<[noteModel], Error>) -> Void){
         routerNotes.request(.getNotes(token: token)) { data, response, error in
             if let error = error {
                 completion(.failure(error))

@@ -34,6 +34,7 @@ class LogSignViewController: BasicViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordTextField.isSecureTextEntry = true
     }
 }
 

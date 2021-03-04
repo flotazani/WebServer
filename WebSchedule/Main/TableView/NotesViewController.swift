@@ -9,7 +9,8 @@ import UIKit
 
 class NotesViewController: UITableViewController {
 
-    private var model: notesModel?
+    private var model: [noteModel]?
+    private var user: userModel?
     private let token = UserDefaults.standard.string(forKey: "userToken")
     private var index: Int?
     private var child: SpinnerViewController?
@@ -34,8 +35,26 @@ class NotesViewController: UITableViewController {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.removeSpinner()
+                    self.model = data
+                    self.tableView.reloadData()
                 }
-                self.model = data
+
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.removeSpinner()
+                    if error.localizedDescription != "No data found" {
+                        self.showAlert(message: error.localizedDescription)
+                    }
+                }
+            }
+        }
+        NetworkManager.shared.me(token: token) { result in
+            switch result {
+            case .success(let data):
+                self.user = data
+                DispatchQueue.main.async {
+                    self.removeSpinner()
+                }
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.removeSpinner()
@@ -47,9 +66,7 @@ class NotesViewController: UITableViewController {
         }
     }
 
-    
-
-    private func deleteNote(with id: String, user: userModel){
+    private func deleteNote(with id: String, user: userModel, index: IndexPath){
         guard let token = token else {
             return
         }
@@ -57,7 +74,10 @@ class NotesViewController: UITableViewController {
         NetworkManager.shared.deleteNote(token: token, user: user, id: id) { result in
             switch result {
             case .success(_):
-                print(" ")
+                DispatchQueue.main.async {
+                    self.model?.remove(at: index.row)
+                    self.tableView.deleteRows(at: [index], with: .fade)
+                }
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.showAlert(message: error.localizedDescription)
@@ -68,12 +88,18 @@ class NotesViewController: UITableViewController {
 
     @objc func addNote(){
         let noteViewController:NoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
-        noteViewController.onSavePressed = { note in
-            self.model?.notes.insert(note, at: 0)
-        }
-        noteViewController.note?.id = model?.notes.first?.id ?? ""
-        noteViewController.note?.user = (model?.notes.first?.user)!
 
+        noteViewController.onSavePressed = { note in
+            self.model?.insert(note, at: 0)
+            self.tableView.reloadData()
+        }
+
+         guard let user = user else {
+            return
+         }
+
+        noteViewController.note = noteModel(id: "", user: user, body: "")
+        noteViewController.isCreate = true
         self.navigationController?.pushViewController(noteViewController, animated: true)
     }
 
@@ -84,39 +110,51 @@ class NotesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model?.notes.count ?? 0
+        return model?.count ?? 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        cell.textLabel?.text = model?.notes[indexPath.row].body
+        cell.textLabel?.text = model?[indexPath.row].body
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let user = model?.notes[indexPath.row].user, let id = model?.notes[indexPath.row].id else {
+            guard let user = model?[indexPath.row].user, let id = model?[indexPath.row].id else {
                 return
             }
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            deleteNote(with: id, user: user)
+            deleteNote(with: id, user: user, index:  indexPath)
         } 
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        editNote()
     }
 
+    func editNote(){
+        if let ind = index {
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let noteViewController:NoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteViewController") as! NoteViewController
 
-        guard let index = index else {
-            return
+            noteViewController.onSavePressed = { note in
+                self.model?[ind].body = note.body
+                self.tableView.reloadData()
+            }
+
+            guard let id =  model?[ind].id, let user = self.model?[ind].user, let body = model?[ind].body else {
+                return
+            }
+            let note = noteModel(id: id, user: user, body: body)
+            noteViewController.note = note
+            noteViewController.isCreate = false
+            self.navigationController?.pushViewController(noteViewController, animated: true)
+
         }
-        let destinationVC = segue.destination as! NoteViewController
-        destinationVC.note = (model?.notes[index])!
+
     }
 
     func setSpiner(){

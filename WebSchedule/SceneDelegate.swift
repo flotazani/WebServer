@@ -35,13 +35,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = self.window else {
             return
         }
-
+        DispatchQueue.main.async {
         window.rootViewController = vc
         UIView.transition(with: window,
                           duration: 0.5,
                           options: [.transitionCrossDissolve],
                           animations: nil,
                           completion: nil)
+        }
 
     }
 

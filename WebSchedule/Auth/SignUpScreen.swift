@@ -10,14 +10,16 @@ import UIKit
 
 class SignUpViewController: BasicViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     @IBOutlet weak var userNameTextField: UITextField!
 
     @IBOutlet weak var userPasswordTextField: UITextField!
 
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userPasswordTextField.isSecureTextEntry = true
+
+    }
 
     @IBAction func SingUpButtonClicked(_ sender: Any) {
         guard let name = userNameTextField.text, let password = userPasswordTextField.text else {

@@ -12,24 +12,34 @@ struct signModel: Codable {
 
     let token: String
     let user: userModel
+
 }
 
 public struct userModel: Codable {
 
-    let username: String?
-    let id: String
-    let updatedAt: String?
-    let createdAt: String?
-}
+    var username: String?
+    var id: String
+    var updatedAt: String?
+    var createdAt: String?
 
-struct notesModel: Codable {
-    var notes: [noteModel]
+    init(username: String?, id: String, updatedAt: String?, createdAt: String?){
+        self.username = username
+        self.id = id
+        self.updatedAt = updatedAt
+        self.createdAt = createdAt
+    }
 }
 
 struct noteModel: Codable {
     var id: String
     var user: userModel
-    let body: String
+    var body: String
+
+    init(id: String, user: userModel, body: String){
+        self.id = id
+        self.user = user
+        self.body = body
+    }
 }
 struct ErrorModel: Codable {
     let error: Double? = nil
